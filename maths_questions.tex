@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+% Packages %
+\usepackage[margin=20mm]{geometry}
+% margin setting
+\usepackage{amsmath, amssymb}   % math formatting & symbols
+\usepackage{graphicx}           % insert graphics
+\usepackage{mwe}    % loads »blindtext« and »graphicx
+\usepackage{fullpage}           % fullpage margins
+\usepackage{esint}              % vector calculus
+\usepackage{framed}             % frames section of doc
+\usepackage{enumerate}          % allows custom numbers
+\usepackage{enumitem}           % allows enumerating using anything
+\usepackage[super]{nth}         % 1st, 2nd, 3rd etc...
+\usepackage{amsfonts}           % needed for the overbar command
+\usepackage{mathabx}            % astronomical symbols
+\usepackage{tikz}               % for drawing diagrams 
+\usepackage{caption}            % removes figure captions
+\usepackage{subcaption}         % allows subfigure environment
+\usepackage{mdwlist}            % allows continuation of list with suspend{enumerate} and resume{enumerate}
+\usepackage{mathabx}            % contains planet symbols
+\usepackage{graphics, setspace} % for mathematica code
+\usepackage{slashed}            % feynman slash notation. Use \slashed
+\usepackage{simplewick}         % wick contractions
+\usepackage{pgfplots, pgfkeys}  % for tikz pictures
+\usepackage{cancel}				% this allows the use of slash indicating cancellation \cancel{}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 0.3ex}
+} % change the spacing in between references
+
+%Extras for tikz picture %
+\usetikzlibrary{positioning,arrows,patterns}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc} 
+
+\definecolor{jblue}  {RGB}{20,50,100}
+\definecolor{npurple}  {RGB} {153, 51, 204}
+\definecolor{wred}   {RGB}{217,0,56}
+\definecolor{white}   {RGB}{255,255,255}
+
+\definecolor{korange}   {RGB}{235, 80,  43}
+\definecolor{korange2}   {RGB}{245, 100,  63}
+\definecolor{kyelloworange}   {RGB}{255, 210,  110}
+\definecolor{kyelloworange2}   {RGB}{240, 170,  90}
+\definecolor{kred}   {RGB}{204,  102, 153}
+\definecolor{kpurple}   {RGB}{153,  61, 190}
+\definecolor{kpurplelight}   {RGB}{213,  161, 230}
+
+% Define styles for the different kind of edges in a Feynman diagram
+\tikzset{
+  phi/.style={dashed,draw=wred},
+  antifermion/.style={draw=jblue,postaction={decorate},decoration={markings,mark=at position .55 with {\arrow[draw=jblue]{\langle }}}},
+  fermion/.style={draw=jblue,postaction={decorate},decoration={markings,mark=at position .55 with {\arrow[draw=jblue]{\langle }}}},
+  %gluon/.style={decorate,draw=magenta,decoration={coil,amplitude=4pt,segment length=5pt}}
+  vertex/.style={draw,shape=circle,fill=black,minimum size=3pt,inner sep=0pt}
+}
+
+% Packages for Greek %
+%\usepackage[LGRx,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[greek, english]{babel}
+\usepackage{fancyhdr}
+
+% Fonts %
+% \usepackage[condensed,math]{kurier}
+% \usepackage[adobe-utopia]{mathdesign}
+% \usepackage{eulervm, bookman}        
+
+% \usepackage{cmbright}
+% \usepackage[T1]{fontenc}
+
+% Quantum Commands %
+\newcommand{\bra}[1]{\left<  #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right> }
+\newcommand{\braket}[2]{\left<  #1 \middle| #2 \right> }
+\newcommand{\matrixelement}[3]{\langle #1 | #2 | #3 \rangle}
+\newcommand{\lagra}{\mathcal{L}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\numberwithin{equation}{subsection}
+% number the equation under according to sections
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[LO,RE]{\rightmark}
+\fancyhead[LE,RO]{\thepage}
+%\lhead{} % left header
+\setlength{\headsep}{0.3in}
+%E for even page
+%O for odd page
+%L for left side
+%C for centered
+%R for right side
+% \leftmark adds name and number of the current top-level structure (for example, Chapter for reports and books classes; Section for articles ) in uppercase letters.
+% \rightmark adds name and number of the current next to top-level structure (Section for reports and books; Subsection for articles) in uppercase letters.
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        
+        \textbf{\LARGE Daily Maths Questions}
+        
+        \vspace{1.5cm}
+        
+        \textbf{Ieng-Duan}
+        
+        \vspace{0.8cm}
+        
+        Lobb Street\\
+        Brunswick\\
+        Australia
+        
+    \end{center}
+\end{titlepage}
+
+\newpage
+\section*{Question 1}
+
+\section*{Question 2}
+
+
+\section*{Question 3}
+Find the indefinite integral of the following
+\begin{align}
+\int e^{e^{2016x} + 6048x} dx
+\end{align}
+\textbf{Solution}\\
+It's important to realise that $6048 = 3\times 2016$. Let $u = 2016x$, then we have
+\begin{align*}
+\int e^{e^{2016x} + 6048x} dx & = \int e^{e^{u}+3u} du \frac{1}{2016}\\
+&= \frac{1}{2016}\int e^{e^u}(e^{u})^3du. 
+\end{align*}
+Let $w = e^u$, we have
+\begin{align*}
+ \frac{1}{2016}\int e^{e^u}(e^{u})^3du &=  \frac{1}{2016}\int e^{w}w^3dw\frac{du}{dw}\\
+&=  \frac{1}{2016}\int e^{w}w^3dw\frac{1}{\frac{dw}{du}}\\
+&=  \frac{1}{2016}\int e^{w}w^3dw\frac{1}{w}\\
+&=  \frac{1}{2016}\int e^{w}w^2dw\\
+&=  \frac{1}{2016}(e^w w^2 - 2\int e^{w}wdw )\\
+&=  \frac{1}{2016}(e^w w^2 - 2[ e^{w}w - \int e^wdw ])\\
+&=  \frac{1}{2016}(e^w w^2 - 2e^{w}w +  e^w)\\
+&=  \frac{1}{2016}(e^{e^u} (e^u)^2 - 2e^{e^u}e^u +  e^{e^u})\\
+&=  \frac{1}{2016}(e^{e^{2016x}} (e^{2016x})^2 - 2e^{e^{2016x}}e^{2016x} +  e^{e^{2016x}})\\
+&=  \frac{1}{2016}(e^{e^{2016x} + 4032x} - 2e^{e^{2016x} + 2016x} +  e^{e^{2016x}}).
+\end{align*}
+
+\section*{Question 4}
+Find the indefinite integral of the following
+\begin{align}
+\int \frac{x^{-\frac{1}{2}}}{1+x^{\frac{1}{3}}} dx
+\end{align}
+\textbf{Solution}\\
+The idea is to substitute $x$ with another variable that will make the new variable have integer powers. A common multiple of 2 and 3 is 6, hence let $u = x^{\frac{1}{6}}$, then $x = u^6$, and we have 
+\begin{align*}
+\int \frac{x^{-\frac{1}{2}}}{1+x^{\frac{1}{3}}} dx &= \int \frac{u^{-3}}{1+u^{2}} du\frac{dx}{du}\\
+&= \int \frac{u^{-3}}{1+u^{2}}6 u^5du\\
+&= 6\int \frac{u^{2}}{1+u^{2}} du\\
+&= 6\int 1 - \frac{1}{1+u^{2}} du\\
+&= 6u - 6\tan^{-1}(u) + C\\
+&= 6x^{\frac{1}{6}} - 6\tan^{-1}(x^{\frac{1}{6}}) + C.
+\end{align*}
+
+\end{document} 
